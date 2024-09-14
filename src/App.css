@@ -1,38 +1,161 @@
-.App {
-  text-align: center;
+.container {
+  overflow: hidden;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  padding-top: 100px;
+}
+body {
+  overflow: hidden;
+}
+.container .bg,
+.container .bg2 {
+  width: 150%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  animation: marquee 10s linear infinite;
+}
+.container .bg2 {
+  animation: marquee 10s 0.5s linear infinite;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-40%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.container .bg img,
+.container .bg2 img {
+  height: 50px;
+}
+@media (max-width: 800px) {
+  .container .bg img,
+  .container .bg2 img {
+    height: 40px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.react-responsive-modal-modal {
+  border-radius: 20px;
+}
+.react-responsive-modal-closeButton {
+  display: none !important;
+}
+.start-modal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 5px;
+}
+.start-modal input {
+  font-size: 20px;
+  color: red;
+}
+.start-modal select {
+  width: 100px;
+  text-align: center;
+  font-size: 16px;
+  color: red;
+}
+
+.start-modal button {
+  padding: 5px 16px;
+  border-radius: 20px;
+  outline: none;
+  /* border: gray 2px solid; */
+  background-color: red;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.header p {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+}
+.header p:first-child {
+  font-size: 36px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header p:first-child span {
+  font-weight: 700;
+  color: red;
+}
+.header p:last-child span {
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+.header img {
+  height: 50px;
+}
+.question-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  height: 650px;
+  overflow-y: scroll;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+.question-card {
+  border: 2px solid black;
+  margin: 20px;
+  box-shadow: 2px 2px 6px 1px black;
+  height: 220px;
+  border-radius: 10px;
+  width: 350px;
+  background-color: white;
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.question-card .question {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.question-card .options {
+  width: 100%;
+  align-self: end;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  place-items: center;
+}
+
+.question-card .options .option {
+  margin: 2px;
+  background-color: gainsboro;
+  min-width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px;
+  text-align: center;
+}
+
+.question-card .options .option:hover {
+  transform: scale(1.1);
+  background-color: rgb(165, 164, 164);
 }
