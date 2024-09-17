@@ -36,12 +36,6 @@ body {
 .container .bg2 img {
   height: 50px;
 }
-@media (max-width: 800px) {
-  .container .bg img,
-  .container .bg2 img {
-    height: 40px;
-  }
-}
 
 .react-responsive-modal-modal {
   border-radius: 20px;
@@ -58,14 +52,30 @@ body {
 .start-modal input {
   font-size: 20px;
   color: red;
+  border-radius: 5px;
+  border: red 1px solid;
+  outline: none;
+  padding: 2px;
+}
+.start-modal input:focus {
+  border: red 2px solid;
 }
 .start-modal select {
   width: 100px;
   text-align: center;
   font-size: 16px;
   color: red;
+  border: red 1px solid;
+  outline: none;
+  padding: 2px;
 }
-
+.start-modal select:focus {
+  border: red 2px solid;
+}
+.start-modal h2 sup {
+  color: red;
+  font-size: 12px;
+}
 .start-modal button {
   padding: 5px 16px;
   border-radius: 20px;
@@ -84,6 +94,12 @@ body {
   display: flex;
   align-items: center;
   font-size: 28px;
+}
+.header sup {
+  color: red;
+  font-size: 25px;
+  position: relative;
+  top: -10px;
 }
 .header p:first-child {
   font-size: 36px;
@@ -158,4 +174,252 @@ body {
 .question-card .options .option:hover {
   transform: scale(1.1);
   background-color: rgb(165, 164, 164);
+}
+.question-card.correct {
+  border: green 2px solid;
+  box-shadow: 2px 2px 6px 1px green;
+}
+
+.question-card.incorrect {
+  border: red 3px solid;
+  box-shadow: 2px 2px 6px 1px red;
+}
+
+.option.incorrect {
+  background-color: red !important;
+  color: white;
+}
+.option.correct {
+  background-color: green !important;
+  color: white;
+}
+.disabled .option {
+  pointer-events: none;
+}
+.disabled {
+  cursor: not-allowed;
+}
+.loading {
+  position: absolute;
+  top: 0px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+}
+.loading img {
+  border-radius: 50%;
+}
+
+.end {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.end-container {
+  min-width: 200px;
+  width: 40%;
+  min-height: 300px;
+  height: fit-content;
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  animation: shake 0.5s 0.5s linear;
+}
+.end-container .grade {
+  display: flex;
+  font-size: 40px;
+  font-family: cursive;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.end-container .grade .outer-cicle {
+  display: block;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  font-size: 80px;
+  font-family: monospace;
+  padding: 20px;
+  border-top: 2px solid red;
+  border-left: 2px solid red;
+  border-right: 2px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  animation: stamp 0.5s linear;
+  transform: rotate(-20deg);
+}
+
+.end-container .grade .outer-cicle span {
+  display: block;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border-left: 2px solid red;
+  border-right: 2px solid red;
+  border-bottom: 2px solid red;
+  text-align: center;
+  color: rgb(228, 2, 2);
+}
+
+@keyframes stamp {
+  0% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: rotate(-20deg) scale(1);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-2px);
+  }
+  20% {
+    transform: translateX(2px);
+  }
+  30% {
+    transform: translateX(-2px);
+  }
+  40% {
+    transform: translateX(2px);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+  60% {
+    transform: translateX(2px);
+  }
+  70% {
+    transform: translateX(-2px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+  90% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.end-container .quote {
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  width: 70%;
+  color: grey;
+  margin: auto;
+  font-style: italic;
+}
+
+.end-container .speaker {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  width: 70%;
+  text-align: right;
+  padding-right: 10%;
+  color: rgb(69, 69, 69);
+  margin: auto;
+  font-size: 11px;
+  margin-bottom: 20px;
+}
+
+/* From Uiverse.io by polina066 */
+.btn-class-name {
+  margin: auto;
+  width: 150px;
+  --color: 255, 0, 0;
+  border-radius: 0.5em;
+  transition: 0.3s;
+  background-color: rgba(var(--color), 0.2);
+  color: rgb(var(--color));
+  fill: rgb(var(--color));
+  font-family: monospace;
+  font-weight: bolder;
+  font-size: x-large;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border: 2px solid rgb(var(--color));
+  box-shadow: 0 0 10px rgba(var(--color), 0.4);
+  outline: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
+}
+
+.btn-class-name:hover {
+  box-shadow: 0 0 0 5px rgba(var(--color), 0.5);
+}
+
+.btn-class-name span {
+  transform: scale(0.8);
+  transition: 0.3s;
+}
+
+.btn-class-name:hover span {
+  transform: scale(1);
+}
+
+.btn-class-name svg {
+  font-size: 0;
+  transform: scale(0.5) translateX(0%) rotate(-180deg);
+  transition: 0.3s;
+}
+
+.btn-class-name:hover svg {
+  font-size: 20px;
+  transform: scale(1) translateX(20%) rotate(0deg);
+}
+
+.btn-class-name:active {
+  transition: 0s;
+  box-shadow: 0 0 0 5px rgb(var(--color));
+}
+@media (max-width: 800px) {
+  .container {
+    padding-top: 150px;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+  .header {
+    flex-direction: column;
+  }
+  .header p:last-child {
+    justify-content: space-around;
+    width: 100%;
+  }
+  .question-container {
+    height: 90vh;
+  }
+  .container .bg img,
+  .container .bg2 img {
+    height: 40px;
+  }
+  .end-container {
+    width: 95%;
+    height: fit-content;
+  }
+  .end-container .grade {
+    font-size: 20px;
+    text-align: center;
+  }
 }
