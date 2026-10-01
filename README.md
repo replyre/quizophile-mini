@@ -35,7 +35,7 @@ public/                   Images, icons and index.html
 
 ## Getting the API
 
-The questions come from the [Open Trivia Database](https://opentdb.com/), which is free and needs no sign-up or API key. You can build a request URL for any category or difficulty with its [API config tool](https://opentdb.com/api_config.php). The app asks for easy, multiple-choice General Knowledge questions.
+The questions come from the [Open Trivia Database](https://opentdb.com/), which is free and needs no sign-up or API key. You can build a request URL for any category or difficulty with its [API config tool](https://opentdb.com/api_config.php). The app calls `https://opentdb.com/api.php` with `amount` (10 at the start, then 5 per scroll), `category=9` (General Knowledge), `difficulty=easy` and `type=multiple`.
 
 Open Trivia DB allows about one request every 5 seconds per IP. If you send requests faster than that, it returns HTTP 429, and the app logs a "Rate limit exceeded" error.
 
@@ -60,7 +60,7 @@ This writes the production build to the `build` folder.
 
 1. Push the repo to GitHub and import it in Vercel.
 2. Framework preset: **Create React App**. Build command: `npm run build`. Output directory: `build`.
-3. Deploy.
+3. Deploy. The project uses Node.js 24.x, set in `package.json` under `engines`.
 
 ## Author
 

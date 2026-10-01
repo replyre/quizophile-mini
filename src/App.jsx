@@ -46,7 +46,7 @@ function App() {
         setLoading(true);
         setTimeout(() => {
           fetch(
-            `${process.env.REACT_APP_API_URL}?amount=5&category=9&difficulty=easy&type=multiple`
+            "https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple"
           )
             .then((res) => {
               if (res.status === 429) {
@@ -100,7 +100,7 @@ function App() {
     onCloseModal();
     setLoading(true);
     fetch(
-      `${process.env.REACT_APP_API_URL}?amount=10&category=9&difficulty=easy&type=multiple`
+      "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -129,7 +129,7 @@ function App() {
       console.log("work");
       document.querySelector(".question-container").style.display = "none";
     }
-  }, [data, totalAnswered]);
+  }, [data, totalAnswered, totalscore]);
   return (
     <div>
       <Background />
@@ -144,7 +144,7 @@ function App() {
       />
       {loading && (
         <div className="loading">
-          <img src="./search.gif" height={"200px"} />{" "}
+          <img src="./search.gif" alt="loading" height={"200px"} />{" "}
         </div>
       )}
       {
@@ -175,7 +175,7 @@ function App() {
           </div>
         </Modal>
       }
-      {totalscore == totalAnswered && (
+      {Number(totalscore) === totalAnswered && (
         <EndContainer
           totalscore={totalscore}
           score={score}

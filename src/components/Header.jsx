@@ -13,7 +13,7 @@ const Header = ({ totalscore, score }) => {
           score {score}/{totalscore * 10}
         </span>{" "}
         <abbr title="created by replyre" className="shake-console">
-          <a href="https://github.com/replyre" target="_blank">
+          <a href="https://github.com/replyre" target="_blank" rel="noreferrer">
             <img src="more.svg" alt="more" />
           </a>
         </abbr>{" "}
