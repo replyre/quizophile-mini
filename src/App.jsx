@@ -129,7 +129,7 @@ function App() {
       console.log("work");
       document.querySelector(".question-container").style.display = "none";
     }
-  }, [data, totalAnswered]);
+  }, [data, totalAnswered, totalscore]);
   return (
     <div>
       <Background />
@@ -144,7 +144,7 @@ function App() {
       />
       {loading && (
         <div className="loading">
-          <img src="./search.gif" height={"200px"} />{" "}
+          <img src="./search.gif" alt="loading" height={"200px"} />{" "}
         </div>
       )}
       {
@@ -175,7 +175,7 @@ function App() {
           </div>
         </Modal>
       }
-      {totalscore == totalAnswered && (
+      {Number(totalscore) === totalAnswered && (
         <EndContainer
           totalscore={totalscore}
           score={score}
