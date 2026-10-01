@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Quizophile Mini
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple general-knowledge quiz app built with React. Enter your name, pick how many questions you want, answer them as you scroll, and get a grade at the end.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Start screen where you enter your name and choose 10, 15, 20, 25 or 30 questions.
+- Multiple-choice general-knowledge questions (easy) with shuffled options.
+- Infinite scroll: the first 10 questions load at the start, and 5 more load each time you reach the bottom until you hit your chosen total.
+- Each correct answer gives 10 points. Cards turn green or red once answered.
+- Live score in the header.
+- End screen with a grade (A to E), your percentage and a quote, plus an option to play again.
 
-### `npm start`
+## Tech stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 18 (Create React App)
+- react-responsive-modal for the start screen
+- Plain CSS for styling and animations
+- [Open Trivia Database](https://opentdb.com/) API for questions
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project structure
 
-### `npm test`
+```
+src/
+  App.jsx                 Main app: start modal, fetching questions, infinite scroll, score
+  components/
+    Header.jsx            Logo and live score
+    Background.jsx        Animated background
+    CardContainer.jsx     Question cards and answer handling
+    EndContainer.jsx      Works out the grade from the percentage
+    EndCard.jsx           Result screen and "play again"
+  Data/endings.js         Grade messages (A to E)
+public/                   Images, icons and index.html
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting the API
 
-### `npm run build`
+The questions come from the [Open Trivia Database](https://opentdb.com/), which is free and needs no sign-up or API key. You can build a request URL for any category or difficulty with its [API config tool](https://opentdb.com/api_config.php). The app asks for easy, multiple-choice General Knowledge questions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open Trivia DB allows about one request every 5 seconds per IP. If you send requests faster than that, it returns HTTP 429, and the app logs a "Rate limit exceeded" error.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Run locally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+npm start
+```
 
-### `npm run eject`
+Then open http://localhost:3000.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Build
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This writes the production build to the `build` folder.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Deploy to Vercel
 
-## Learn More
+1. Push the repo to GitHub and import it in Vercel.
+2. Framework preset: **Create React App**. Build command: `npm run build`. Output directory: `build`.
+3. Deploy.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Author
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[replyre](https://github.com/replyre)

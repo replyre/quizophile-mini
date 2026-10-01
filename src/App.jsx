@@ -46,7 +46,7 @@ function App() {
         setLoading(true);
         setTimeout(() => {
           fetch(
-            "https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple"
+            `${process.env.REACT_APP_API_URL}?amount=5&category=9&difficulty=easy&type=multiple`
           )
             .then((res) => {
               if (res.status === 429) {
@@ -100,7 +100,7 @@ function App() {
     onCloseModal();
     setLoading(true);
     fetch(
-      "https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple"
+      `${process.env.REACT_APP_API_URL}?amount=10&category=9&difficulty=easy&type=multiple`
     )
       .then((res) => res.json())
       .then((data) => {
